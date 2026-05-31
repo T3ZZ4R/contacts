@@ -7,3 +7,10 @@ const upImgEl=document.querySelector("#avatarInput");
 const addBtnEl=document.querySelector("#addContactBtn");
 const contactsFieldEl=document.querySelector("#contactsContainer");
 const emptyStateMsgEl=document.querySelector("#emptyState")
+const contactsCounterEl=document.querySelector("#contactCounter");
+//states
+const state={
+    "contacts":[]
+};
+
+console.log(state.contacts.length);
