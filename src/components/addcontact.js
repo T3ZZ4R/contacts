@@ -9,21 +9,19 @@ import {
 } from "./commun.js";
 
 const addContactHandler = () => {
-   
 
     const contact = {
-
         "name": nameBoxEl.value,
         "tel": numberBoxEl.value,
-        "email": emailBoxEl.value
-    }
+        "email": emailBoxEl.value,
+        "img": previewImg.src
+    };
     state.contacts.push(contact);
-
 }
-
 const showPreview = () => {
-     const image = upImgEl.files[0];
-        const reader = new FileReader();
+    const image = upImgEl.files[0];
+    if (!image) return;
+    const reader = new FileReader();
     reader.onload = event => {
 
         previewImg.src = event.target.result;
