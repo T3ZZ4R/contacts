@@ -1,16 +1,15 @@
 //global
-const searchBoxEl=document.querySelector("#searchInput");
-const nameBoxEl=document.querySelector("#nameInput");
-const numberBoxEl=document.querySelector("#phoneInput");
-const emailBoxEl=document.querySelector("#emailInput");
-const upImgEl=document.querySelector("#avatarInput");
-const addBtnEl=document.querySelector("#addContactBtn");
-const contactsFieldEl=document.querySelector("#contactsContainer");
-const emptyStateMsgEl=document.querySelector("#emptyState")
-const contactsCounterEl=document.querySelector("#contactCounter");
+export const searchBoxEl=document.querySelector("#searchInput");
+export const nameBoxEl=document.querySelector("#nameInput");
+export const numberBoxEl=document.querySelector("#phoneInput");
+export const emailBoxEl=document.querySelector("#emailInput");
+export const upImgEl=document.querySelector("#avatarInput");
+export const addBtnEl=document.querySelector("#addContactBtn");
+export const contactsFieldEl=document.querySelector("#contactsContainer");
+export const emptyStateMsgEl=document.querySelector("#emptyState")
+export const contactsCounterEl=document.querySelector("#contactCounter");
+export const previewImg=document.querySelector("#avatarPreview");
 //states
-const state={
+export const state={
     "contacts":[]
 };
-
-console.log(state.contacts.length);
