@@ -16,13 +16,13 @@
   </header>
   <section class="form-section">
     <div class="input-group">
-      <input type="text" id="nameInput" placeholder="Name">
+      <input type="text" id="nameInput" placeholder="Name" required>
     </div>
     <div class="input-group">
-      <input type="tel" id="phoneInput" placeholder="Phone">
+      <input type="tel" id="phoneInput" placeholder="Phone" required>
     </div>
     <div class="input-group">
-      <input type="email" id="emailInput" placeholder="Email">
+      <input type="email" id="emailInput" placeholder="Email" required>
     </div>
     <div class="input-group">
       <input type="file" id="avatarInput" accept="image/png,image/jpeg,image/jpg,image/webp">
@@ -30,22 +30,8 @@
     </div>
     <button id="addContactBtn">Add Contact</button>
   </section>
-  <section class="contacts" id="contactsContainer"> <!-- CONTACT CARD TEMPLATE --> <!--
-  <div class="card">
-    <div class="avatar">
-      <img src="data:image/...">
-      OR
-      <div class="avatar-placeholder">A</div>
-    </div>
-    <h3>Name</h3>
-    <p>Phone</p>
-    <p>Email</p>
-    <div class="actions">
-      <button class="edit-btn"><i class="fa fa-pen"></i></button>
-      <button class="delete-btn"><i class="fa fa-trash"></i></button>
-    </div>
-  </div>
-  --></section>
+  <section class="contacts" id="contactsContainer"> <!-- CONTACT CARD TEMPLATE -->
+ </section>
   <div id="emptyState">
     <p>No contacts yet. Add your first one ✨</p>
   </div>
@@ -57,7 +43,10 @@ You can store contacts using localStorage or IndexedDB.
 For avatars:
 - Convert image to Base64 OR use URL.createObjectURL
 - Save as string and re-render inside <img src="">
--->
+--><div id="errorToast" class="error-toast">
+  <i class="fas fa-exclamation-circle"></i>
+  <span id="errorMessage">This is an error message!</span>
+</div>
 </body>
 
 </html>
