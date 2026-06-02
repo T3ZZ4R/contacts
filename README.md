@@ -6,7 +6,8 @@
 
 ## Technologies
 HTML, CSS, Vanilla JS, FontAwesome, LocalStorage
-
+## Demo
+https://t3zz4r.github.io/contacts/
 ## Run
 Open `index.html` in browser — no server needed.
 
