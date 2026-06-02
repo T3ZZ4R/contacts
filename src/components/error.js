@@ -1,8 +1,8 @@
 import { errorBoxEl, errorMsg } from "./commun.js";
-export const errorHandler = message=>{
+export const errorHandler = message => {
     errorBoxEl.classList.add('show');
-    errorMsg.textContent=message;
-    setTimeout( ()=>{
+    errorMsg.textContent = message;
+    setTimeout(() => {
         errorBoxEl.classList.remove('show');
-    },1500)
+    }, 1500)
 }

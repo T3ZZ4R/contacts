@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Manager</title><!-- Google Fonts -->
-<!-- <link rel="stylesheet" href="css/style.css"> -->
-<!-- <script type="module" src="index.js"></script> -->
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="index.js"></script>
 </head>
 
 <body>
@@ -31,7 +31,7 @@
     <button id="addContactBtn">Add Contact</button>
   </section>
   <section class="contacts" id="contactsContainer"> <!-- CONTACT CARD TEMPLATE -->
- </section>
+  </section>
   <div id="emptyState">
     <p>No contacts yet. Add your first one ✨</p>
   </div>
@@ -43,10 +43,11 @@ You can store contacts using localStorage or IndexedDB.
 For avatars:
 - Convert image to Base64 OR use URL.createObjectURL
 - Save as string and re-render inside <img src="">
---><div id="errorToast" class="error-toast">
-  <i class="fas fa-exclamation-circle"></i>
-  <span id="errorMessage">This is an error message!</span>
-</div>
+-->
+  <div id="errorToast" class="error-toast">
+    <i class="fas fa-exclamation-circle"></i>
+    <span id="errorMessage">This is an error message!</span>
+  </div>
 </body>
 
 </html>

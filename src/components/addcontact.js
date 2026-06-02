@@ -39,7 +39,7 @@ return;
     upImgEl.value="";
     previewImg.removeAttribute("src");
     previewImg.classList.remove("show");
-    elementHandler();
+    elementHandler(state.contacts);
 }
 const showPreview = () => {
     const image = upImgEl.files[0];

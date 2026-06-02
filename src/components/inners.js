@@ -1,8 +1,8 @@
 import { contactsCounterEl, contactsFieldEl, emptyStateMsgEl, state } from "./commun.js";
-export const elementHandler = () => {
+export const elementHandler = (obj) => {
   contactsFieldEl.innerHTML = "";
-  state.contacts.forEach(contact => {
-    const badge = contact.name.slice(0, 1);
+  obj.forEach(contact => {
+    const badge = contact.name.slice(0, 1).toUpperCase();
     //`<img src="${contact.img}"`||``
     const element = `
      <div class="card">
