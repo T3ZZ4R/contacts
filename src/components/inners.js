@@ -20,6 +20,6 @@ export const elementHandler = (obj) => {
   </div>`;
     contactsFieldEl.insertAdjacentHTML("beforeend", element);
     emptyStateMsgEl.innerHTML = "";
-    contactsCounterEl.textContent = `${state.contacts.length} Contacts`
+    contactsCounterEl.textContent = `${obj.length} Contacts`
   })
 }
