@@ -27,6 +27,7 @@ export const elementHandler = (obj,emptyStateMessage=`No contacts yet. Add your 
   </div>`;
     contactsFieldEl.insertAdjacentHTML("beforeend", element);
     contactsCounterEl.textContent = `${obj.length} Contacts`
+    emptyStateMsgEl.innerHTML ="";
   }
 )
 }
