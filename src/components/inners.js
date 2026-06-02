@@ -1,5 +1,12 @@
 import { contactsCounterEl, contactsFieldEl, emptyStateMsgEl, state } from "./commun.js";
-export const elementHandler = (obj) => {
+export const elementHandler = (obj,emptyStateMessage=`No contacts yet. Add your first one ✨`) => {
+  if(obj.length == 0){
+    contactsFieldEl.innerHTML = ""; 
+    emptyStateMsgEl.innerHTML = `<p>${emptyStateMessage}</p>`;
+    contactsCounterEl.textContent = `${obj.length} Contacts`
+    return;
+  }
+    
   contactsFieldEl.innerHTML = "";
   obj.forEach(contact => {
     const badge = contact.name.slice(0, 1).toUpperCase();
@@ -19,7 +26,7 @@ export const elementHandler = (obj) => {
     </div>
   </div>`;
     contactsFieldEl.insertAdjacentHTML("beforeend", element);
-    emptyStateMsgEl.innerHTML = "";
     contactsCounterEl.textContent = `${obj.length} Contacts`
-  })
+  }
+)
 }
