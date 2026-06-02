@@ -12,7 +12,7 @@ export const emptyStateMsgEl=document.querySelector("#emptyState")
 export const contactsCounterEl=document.querySelector("#contactCounter");
 export const previewImg=document.querySelector("#avatarPreview");
 export const errorBoxEl=document.querySelector(".error-toast");
-export const errorMsg=document.querySelector(".errorMessage");
+export const errorMsg=document.querySelector("#errorMessage");
 //states
 export const state={
     "contacts":[]

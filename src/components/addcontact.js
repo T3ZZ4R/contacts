@@ -8,15 +8,20 @@ import {
     previewImg,
     errorBoxEl
 } from "./commun.js";
+import { errorHandler } from "./error.js";
 import { elementHandler } from "./inners.js";
 
 const addContactHandler = () => {
     const nameChecked =nameBoxEl.value=="";
     const numberChecked = numberBoxEl.value=="";
-    console.log(nameChecked , numberChecked);
     if(nameChecked){
-errorBoxEl.classList.add('show');
+errorHandler('Name Is Cannot Be Empty')
+return;
     }
+    if(numberChecked){
+        errorHandler('Number Is Connat Be Empty')
+    return;
+     }
     const contact = {
         "name": nameBoxEl.value,
         "tel": numberBoxEl.value,
@@ -25,7 +30,7 @@ errorBoxEl.classList.add('show');
     };
     state.contacts.push(contact);
     const stringOfList = JSON.stringify(state.contacts)
-    // localStorage.setItem("contact", stringOfList);
+     localStorage.setItem("contact", stringOfList);
 
 
     nameBoxEl.value = "";
@@ -48,3 +53,21 @@ const showPreview = () => {
 }
 upImgEl.addEventListener('change', showPreview);
 addBtnEl.addEventListener('click', addContactHandler);
+const numberCheckHandler=(e)=>{
+    console.log(e);
+    const allowedKeys = [
+        'Backspace', 'Delete', 'Tab', 'Escape', 'Enter',
+        'Home', 'End', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'
+    ];
+    if (allowedKeys.includes(e.key)) {
+        return;
+    }
+
+    const numberCheckinput=/^[0-9]$/;
+    if(!numberCheckinput.test(e.key)){
+        e.preventDefault();
+    errorHandler('Number Box May Not Contain Characters');
+    return false;
+    }
+}
+numberBoxEl.addEventListener('keydown',numberCheckHandler);
