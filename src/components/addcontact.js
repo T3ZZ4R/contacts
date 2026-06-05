@@ -31,8 +31,6 @@ const addContactHandler = () => {
             "img": previewImg.src
         };
         state.contacts.push(contact);
-        const stringOfList = JSON.stringify(state.contacts)
-        localStorage.setItem("contact", stringOfList);
     }
     if (addBtnEl.id == "confirm-btn") {
         state.contacts.forEach(contact => {
@@ -51,6 +49,8 @@ const addContactHandler = () => {
         previewImg.removeAttribute("src");
         previewImg.classList.remove("show");
         elementHandler(state.contacts);
+         const stringOfList = JSON.stringify(state.contacts)
+        localStorage.setItem("contact", stringOfList);
 }
 const showPreview = () => {
     const image = upImgEl.files[0];
