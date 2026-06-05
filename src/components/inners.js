@@ -1,4 +1,5 @@
 import { contactsCounterEl, contactsFieldEl, emptyStateMsgEl, state } from "./commun.js";
+import { deleteHandler } from "./delete.js";
 import { editHandler } from "./edit.js";
 export const elementHandler = (obj, emptyStateMessage = `No contacts yet. Add your first one ✨`) => {
   if (obj.length == 0) {
@@ -33,7 +34,11 @@ export const elementHandler = (obj, emptyStateMessage = `No contacts yet. Add yo
   )
 const editBtn=document.querySelectorAll('.edit-btn');
 editBtn.forEach((btn)=>{
-btn.addEventListener('click',editHandler)
+btn.addEventListener('click',editHandler);
+const deleteBtn=document.querySelectorAll('.delete-btn');
+deleteBtn.forEach((btn)=>{
+  btn.addEventListener('click',deleteHandler)
+})
   
 })
 }
