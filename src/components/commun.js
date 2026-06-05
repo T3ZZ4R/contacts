@@ -13,10 +13,12 @@ export const contactsCounterEl = document.querySelector("#contactCounter");
 export const previewImg = document.querySelector("#avatarPreview");
 export const errorBoxEl = document.querySelector(".error-toast");
 export const errorMsg = document.querySelector("#errorMessage");
+
 //states
 export const state = {
     "contacts": [],
-    "searched": []
+    "searched": [],
+    "inEdit":[]
 };
 //get items from local storage
 const getFromLocal = async () => {

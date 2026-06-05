@@ -4,6 +4,6 @@ export const errorHandler = message => {
     errorMsg.textContent = message;
     setTimeout(() => {
         errorBoxEl.classList.remove('show');
-    }, 2500)
+    }, 3000)
 }
 //if want want handke it call it and give your message

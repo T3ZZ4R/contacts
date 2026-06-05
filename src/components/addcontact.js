@@ -12,34 +12,45 @@ import { errorHandler } from "./error.js";
 import { elementHandler } from "./inners.js";
 
 const addContactHandler = () => {
-    const nameChecked =nameBoxEl.value=="";
-    const numberChecked = numberBoxEl.value=="";
-    if(nameChecked){
-errorHandler('Name Is Cannot Be Empty')
-return;
+
+    const nameChecked = nameBoxEl.value == "";
+    const numberChecked = numberBoxEl.value == "";
+    if (nameChecked) {
+        errorHandler('Name Is Cannot Be Empty')
+        return;
     }
-    if(numberChecked){
+    if (numberChecked) {
         errorHandler('Number Is Connat Be Empty')
-    return;
-     }
-    const contact = {
-        "name": nameBoxEl.value,
-        "tel": numberBoxEl.value,
-        "email": emailBoxEl.value,
-        "img": previewImg.src
-    };
-    state.contacts.push(contact);
-    const stringOfList = JSON.stringify(state.contacts)
-     localStorage.setItem("contact", stringOfList);
-
-
+        return;
+    }
+    if (addBtnEl.id == "addContactBtn") {
+        const contact = {
+            "name": nameBoxEl.value,
+            "tel": numberBoxEl.value,
+            "email": emailBoxEl.value,
+            "img": previewImg.src
+        };
+        state.contacts.push(contact);
+        const stringOfList = JSON.stringify(state.contacts)
+        localStorage.setItem("contact", stringOfList);
+    }
+    if (addBtnEl.id == "confirm-btn") {
+        state.contacts.forEach(contact => {
+            if (contact.name == state.inEdit.name) {
+                contact.name = nameBoxEl.value;
+                contact.email = emailBoxEl.value;
+                contact.tel = numberBoxEl.value;
+                contact.img = previewImg.src;
+            }
+        })
+    }
     nameBoxEl.value = "";
-    emailBoxEl.value = "";
-    numberBoxEl.value = "";
-    upImgEl.value="";
-    previewImg.removeAttribute("src");
-    previewImg.classList.remove("show");
-    elementHandler(state.contacts);
+        emailBoxEl.value = "";
+        numberBoxEl.value = "";
+        upImgEl.value = "";
+        previewImg.removeAttribute("src");
+        previewImg.classList.remove("show");
+        elementHandler(state.contacts);
 }
 const showPreview = () => {
     const image = upImgEl.files[0];
@@ -51,10 +62,11 @@ const showPreview = () => {
     }
     reader.readAsDataURL(image);
 }
+
+
 upImgEl.addEventListener('change', showPreview);
 addBtnEl.addEventListener('click', addContactHandler);
-const numberCheckHandler=(e)=>{
-    console.log(e);
+const numberCheckHandler = (e) => {
     const allowedKeys = [
         'Backspace', 'Delete', 'Tab', 'Escape', 'Enter',
         'Home', 'End', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'
@@ -62,12 +74,11 @@ const numberCheckHandler=(e)=>{
     if (allowedKeys.includes(e.key)) {
         return;
     }
-
-    const numberCheckinput=/^[0-9]$/;
-    if(!numberCheckinput.test(e.key)){
+    const numberCheckinput = /^[0-9]$/;
+    if (!numberCheckinput.test(e.key)) {
         e.preventDefault();
-    errorHandler('Number Box May Not Contain Characters');
-    return false;
+        errorHandler('Number Box May Not Contain Characters');
+        return false;
     }
 }
-numberBoxEl.addEventListener('keydown',numberCheckHandler);
+numberBoxEl.addEventListener('keydown', numberCheckHandler);
