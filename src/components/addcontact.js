@@ -8,6 +8,7 @@ import {
     previewImg,
     errorBoxEl
 } from "./commun.js";
+import { confirmHandler } from "./edit.js";
 import { errorHandler } from "./error.js";
 import { elementHandler } from "./inners.js";
 
@@ -33,14 +34,7 @@ const addContactHandler = () => {
         state.contacts.push(contact);
     }
     if (addBtnEl.id == "confirm-btn") {
-        state.contacts.forEach(contact => {
-            if (contact.name == state.inEdit.name) {
-                contact.name = nameBoxEl.value;
-                contact.email = emailBoxEl.value;
-                contact.tel = numberBoxEl.value;
-                contact.img = previewImg.src;
-            }
-        })
+       confirmHandler();
     }
     nameBoxEl.value = "";
         emailBoxEl.value = "";

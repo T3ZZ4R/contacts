@@ -21,11 +21,11 @@ export const state = {
     "inEdit":[]
 };
 //get items from local storage
-const getFromLocal = async () => {
+const getFromLocal =() => {
     try {
-        const data = await localStorage.getItem("contact");
+        const data =  localStorage.getItem("contact");
         if (!data) return;
-        const jsonifyData = await JSON.parse(data);
+        const jsonifyData =JSON.parse(data);
         state.contacts = jsonifyData;
         elementHandler(state.contacts);
     }
@@ -37,3 +37,8 @@ const getFromLocal = async () => {
     }
 }
 getFromLocal();
+export const updateLocal=()=>{
+    const stringOfList = JSON.stringify(state.contacts)
+    localStorage.setItem("contact", stringOfList);
+    elementHandler(state.contacts)
+}

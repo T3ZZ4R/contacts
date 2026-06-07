@@ -1,5 +1,7 @@
 import { errorBoxEl, errorMsg } from "./commun.js";
-export const errorHandler = message => {
+export const errorHandler = (message,color='#ff4d6d',textColor='white') => {
+errorBoxEl.style.background=color;
+errorBoxEl.style.color=textColor;
     errorBoxEl.classList.add('show');
     errorMsg.textContent = message;
     setTimeout(() => {
