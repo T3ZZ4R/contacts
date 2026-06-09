@@ -25,13 +25,16 @@ export const elementHandler = (obj, emptyStateMessage = `No contacts yet. Add yo
     <div class="actions">
       <button class="edit-btn"><i class="fa fa-pen"></i>E</button>
       <button class="delete-btn"><i class="fa fa-trash"></i>D</button>
+  <a href="tel:${contact.tel}>
+  <button class="call-btn">C</button></a>
     </div>
   </div>`;
     contactsFieldEl.insertAdjacentHTML("beforeend", element);
-    contactsCounterEl.textContent = `${obj.length} Contacts`
+   
     emptyStateMsgEl.innerHTML = "";
   }
   )
+   contactsCounterEl.textContent = `${obj.length} Contacts`
 const editBtn=document.querySelectorAll('.edit-btn');
 editBtn.forEach((btn)=>{
 btn.addEventListener('click',editHandler);

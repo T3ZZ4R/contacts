@@ -13,7 +13,8 @@ export const contactsCounterEl = document.querySelector("#contactCounter");
 export const previewImg = document.querySelector("#avatarPreview");
 export const errorBoxEl = document.querySelector(".error-toast");
 export const errorMsg = document.querySelector("#errorMessage");
-
+export const deleteMsg = document.querySelector('.delete-toast');
+export const deleteBtns = document.querySelectorAll('.delete-action')
 //states
 export const state = {
     "contacts": [],

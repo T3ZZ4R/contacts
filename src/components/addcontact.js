@@ -13,7 +13,6 @@ import { errorHandler } from "./error.js";
 import { elementHandler } from "./inners.js";
 
 const addContactHandler = () => {
-
     const nameChecked = nameBoxEl.value == "";
     const numberChecked = numberBoxEl.value == "";
     if (nameChecked) {
@@ -24,6 +23,11 @@ const addContactHandler = () => {
         errorHandler('Number Is Connat Be Empty')
         return;
     }
+       const numberCheckinput = /^[0-9]$/;
+       if(numberCheckinput.test(numberBoxEl)){
+        errorHandler('Number Box May Not Contain Characters');
+        return false;
+       }
     if (addBtnEl.id == "addContactBtn") {
         const contact = {
             "name": nameBoxEl.value,
@@ -56,10 +60,6 @@ const showPreview = () => {
     }
     reader.readAsDataURL(image);
 }
-
-
-upImgEl.addEventListener('change', showPreview);
-addBtnEl.addEventListener('click', addContactHandler);
 const numberCheckHandler = (e) => {
     const allowedKeys = [
         'Backspace', 'Delete', 'Tab', 'Escape', 'Enter',
@@ -76,3 +76,5 @@ const numberCheckHandler = (e) => {
     }
 }
 numberBoxEl.addEventListener('keydown', numberCheckHandler);
+upImgEl.addEventListener('change', showPreview);
+addBtnEl.addEventListener('click', addContactHandler);
