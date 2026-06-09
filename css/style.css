@@ -21,6 +21,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 /* RTL SUPPORT */
@@ -334,7 +335,14 @@ footer {
   text-align: center;
   border-top: 1px solid var(--border);
 }
-
+.logo{
+mix-blend-mode: screen;
+position: absolute;
+bottom: 20px;
+left: 50%;
+transform: translateX(-50%);
+width: 100px;
+}
 /* RESPONSIVE */
 @media(max-width:600px) {
   header {
