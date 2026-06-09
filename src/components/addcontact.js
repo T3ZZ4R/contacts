@@ -23,10 +23,10 @@ const addContactHandler = () => {
         errorHandler('Number Is Connat Be Empty')
         return;
     }
-       const numberCheckinput = /^[0-9]$/;
-       if(numberCheckinput.test(numberBoxEl)){
+       const numberCheckinput = /^[0-9]+$/;
+       if(!numberCheckinput.test(numberBoxEl.value)){
         errorHandler('Number Box May Not Contain Characters');
-        return false;
+        return;
        }
     if (addBtnEl.id == "addContactBtn") {
         const contact = {
