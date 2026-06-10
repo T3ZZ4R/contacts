@@ -6,10 +6,12 @@ import {
     upImgEl,
     addBtnEl,
     previewImg,
-    errorBoxEl
+    errorBoxEl,
+    updateLocal
 } from "./commun.js";
 import { confirmHandler } from "./edit.js";
 import { errorHandler } from "./error.js";
+import { updateFilds } from "./field.js";
 import { elementHandler } from "./inners.js";
 
 const addContactHandler = () => {
@@ -42,15 +44,13 @@ const addContactHandler = () => {
     if (addBtnEl.id == "confirm-btn") {
         confirmHandler();
     }
-    nameBoxEl.value = "";
-    emailBoxEl.value = "";
-    numberBoxEl.value = "";
-    upImgEl.value = "";
-    previewImg.removeAttribute("src");
-    previewImg.classList.remove("show");
-    elementHandler(state.contacts);
-    const stringOfList = JSON.stringify(state.contacts)
-    localStorage.setItem("contact", stringOfList);
+updateFilds.setValue("empty")
+
+    
+updateLocal();
+    // elementHandler(state.contacts);
+    // const stringOfList = JSON.stringify(state.contacts)
+    // localStorage.setItem("contact", stringOfList);
 }
 const showPreview = () => {
     const image = upImgEl.files[0];

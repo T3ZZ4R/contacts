@@ -1,6 +1,7 @@
 import { contactsCounterEl, contactsFieldEl, emptyStateMsgEl, state } from "./commun.js";
 import { deleteHandler } from "./delete.js";
 import { editHandler } from "./edit.js";
+import { updateFilds } from "./field.js";
 export const elementHandler = (obj, emptyStateMessage = `No contacts yet. Add your first one ✨`) => {
   if (obj.length == 0) {
     contactsFieldEl.innerHTML = "";
@@ -34,6 +35,7 @@ export const elementHandler = (obj, emptyStateMessage = `No contacts yet. Add yo
     emptyStateMsgEl.innerHTML = "";
   }
   )
-   contactsCounterEl.textContent = `${obj.length} Contacts`;
+  updateFilds.setValue("empty");
+  contactsCounterEl.textContent = `${obj.length} Contacts`;
 }
 

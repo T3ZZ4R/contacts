@@ -1,5 +1,6 @@
 import { addBtnEl, emailBoxEl, nameBoxEl, numberBoxEl, previewImg, state } from "./commun.js";
 import { errorHandler } from "./error.js";
+import { updateFilds } from "./field.js";
 export const editHandler = event => {
     const btnClicked = event.target.closest('.edit-btn')
     if (!btnClicked) return;
@@ -7,18 +8,8 @@ export const editHandler = event => {
     const id = selectedCard.dataset.id;
     const name = selectedCard.querySelector('.name');
     const inEdit = state.contacts.find(contact => contact.id == id);
+    updateFilds.setValue(inEdit);
     state.inEdit = inEdit.id;
-    nameBoxEl.value = inEdit.name;
-    numberBoxEl.value = inEdit.tel;
-    emailBoxEl.value = inEdit.email;
-    if (inEdit.img) {
-        previewImg.src = inEdit.img;
-        previewImg.classList.add('show');
-    }
-    else {
-        previewImg.removeAttribute('src');
-        previewImg.classList.remove('show')
-    }
     addBtnEl.textContent = "CONFIRM";
     addBtnEl.id = "confirm-btn";
     nameBoxEl.focus();
@@ -31,6 +22,7 @@ export const editHandler = event => {
 export const confirmHandler = () => {
     state.contacts.find(contact => {
         if (contact.id == state.inEdit) {
+           
             contact.name = nameBoxEl.value;
             contact.email = emailBoxEl.value;
             contact.tel = numberBoxEl.value;
