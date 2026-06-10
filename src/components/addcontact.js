@@ -32,13 +32,7 @@ const addContactHandler = () => {
     }
     if (addBtnEl.id == "addContactBtn") {
 
-        const contact = {
-            "id": crypto.randomUUID(),
-            "name": nameBoxEl.value,
-            "tel": numberBoxEl.value,
-            "email": emailBoxEl.value,
-            "img": previewImg.src
-        };        
+         const contact =updateFilds.getValue('new');
         state.contacts.push(contact);
     }
     if (addBtnEl.id == "confirm-btn") {
@@ -46,11 +40,7 @@ const addContactHandler = () => {
     }
 updateFilds.setValue("empty")
 
-    
 updateLocal();
-    // elementHandler(state.contacts);
-    // const stringOfList = JSON.stringify(state.contacts)
-    // localStorage.setItem("contact", stringOfList);
 }
 const showPreview = () => {
     const image = upImgEl.files[0];

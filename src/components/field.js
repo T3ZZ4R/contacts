@@ -20,6 +20,15 @@ export const updateFilds={
         previewImg.removeAttribute('src');
         previewImg.classList.remove('show')
     }
-}}
-
+}},
+getValue(value){
+const contact={
+    "id":value.id?value.id:crypto.randomUUID(),
+    "name":nameBoxEl.value,
+    "tel":numberBoxEl.value,
+    "email":emailBoxEl.value,
+    "img":previewImg.src
+};
+return contact;
+}
 }

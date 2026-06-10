@@ -20,18 +20,10 @@ export const editHandler = event => {
     });
 }
 export const confirmHandler = () => {
-    state.contacts.find(contact => {
-        if (contact.id == state.inEdit) {
-           
-            contact.name = nameBoxEl.value;
-            contact.email = emailBoxEl.value;
-            contact.tel = numberBoxEl.value;
-            contact.img = previewImg.src;
-        }
-    })
+    state.contacts = state.contacts.map(contact => contact.id == state.inEdit ?
+        contact = updateFilds.getValue(contact)
+        : contact);
     errorHandler(`Contact Changed Succsesfuly`, '#09ff09', 'black');
-
-
     state.inEdit = null;
     addBtnEl.id = "addContactBtn";
     addBtnEl.textContent = 'Add Contact'
