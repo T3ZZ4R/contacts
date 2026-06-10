@@ -1,4 +1,5 @@
 import { elementHandler } from "./inners.js";
+import { storage } from "./local.js";
 
 //global
 export const searchBoxEl = document.querySelector("#searchInput");
@@ -19,28 +20,8 @@ export const deleteBtns = document.querySelectorAll('.delete-action')
 export const state = {
     "contacts": [],
     "searched": [],
-    "inEdit": [],
+    "inEdit": null,
     "pendingToDeleteId": null
 };
-//get items from local storage
-const getFromLocal = () => {
-    try {
-        const data = localStorage.getItem("contact");
-        if (!data) return;
-        const jsonifyData = JSON.parse(data);
-        state.contacts = jsonifyData;
-        elementHandler(state.contacts);
-    }
-    catch {
-        err => {
-            console.log(err);
 
-        }
-    }
-}
-getFromLocal();
-export const updateLocal = () => {
-    const stringOfList = JSON.stringify(state.contacts)
-    localStorage.setItem("contact", stringOfList);
-    elementHandler(state.contacts)
-}
+storage.getFromLocal();

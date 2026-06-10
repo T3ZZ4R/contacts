@@ -1,6 +1,7 @@
-import { deleteBtns, deleteMsg, state, updateLocal } from "./commun.js";
+import { deleteBtns, deleteMsg, state} from "./commun.js";
 import { errorHandler } from "./error.js";
 import { elementHandler } from "./inners.js";
+import { storage } from "./local.js";
 
 export const deleteHandler = event => {
     const btnClicked = event.target.closest('.delete-btn')
@@ -21,7 +22,7 @@ export const confirmDelete = (e) => {
         state.contacts = state.contacts.filter(contact => contact.id != state.pendingToDeleteId);
         deleteMsg.classList.remove('show');
         errorHandler(`${contact.name} Is Succsesfully Removed`, 'lightgreen', 'black')
-        updateLocal();
+        storage.updateLocal();
         return;
     }
     if (action == 'cancel') {

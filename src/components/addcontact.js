@@ -6,13 +6,13 @@ import {
     upImgEl,
     addBtnEl,
     previewImg,
-    errorBoxEl,
-    updateLocal
+    errorBoxEl
 } from "./commun.js";
 import { confirmHandler } from "./edit.js";
 import { errorHandler } from "./error.js";
 import { updateFilds } from "./field.js";
 import { elementHandler } from "./inners.js";
+import { storage } from "./local.js";
 
 const addContactHandler = () => {
     const nameChecked = nameBoxEl.value == "";
@@ -39,8 +39,7 @@ const addContactHandler = () => {
         confirmHandler();
     }
 updateFilds.setValue("empty")
-
-updateLocal();
+storage.updateLocal();
 }
 const showPreview = () => {
     const image = upImgEl.files[0];
