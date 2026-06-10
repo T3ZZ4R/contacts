@@ -31,16 +31,13 @@ const addContactHandler = () => {
     if (addBtnEl.id == "addContactBtn") {
 
         const contact = {
-            "id": 1,
+            "id": crypto.randomUUID(),
             "name": nameBoxEl.value,
             "tel": numberBoxEl.value,
             "email": emailBoxEl.value,
             "img": previewImg.src
-        };
-        let lastContact = state.contacts.length;
-        contact.id = lastContact++;
+        };        
         state.contacts.push(contact);
-
     }
     if (addBtnEl.id == "confirm-btn") {
         confirmHandler();

@@ -4,11 +4,10 @@ export const editHandler = event => {
     const btnClicked = event.target.closest('.edit-btn')
     if (!btnClicked) return;
     const selectedCard = btnClicked.closest('.card');
-    const id=selectedCard.dataset.id;
+    const id = selectedCard.dataset.id;
     const name = selectedCard.querySelector('.name');
-    state.inEdit = state.contacts.filter(contact => contact.id == id);
-    const inEdit = state.inEdit[0];
-
+    const inEdit = state.contacts.find(contact => contact.id == id);
+    state.inEdit = inEdit.id;
     nameBoxEl.value = inEdit.name;
     numberBoxEl.value = inEdit.tel;
     emailBoxEl.value = inEdit.email;
@@ -30,8 +29,8 @@ export const editHandler = event => {
     });
 }
 export const confirmHandler = () => {
-    state.contacts.forEach(contact => {
-        if (contact.name == state.inEdit[0].name) {
+    state.contacts.find(contact => {
+        if (contact.id == state.inEdit) {
             contact.name = nameBoxEl.value;
             contact.email = emailBoxEl.value;
             contact.tel = numberBoxEl.value;
@@ -41,7 +40,7 @@ export const confirmHandler = () => {
     errorHandler(`Contact Changed Succsesfuly`, '#09ff09', 'black');
 
 
-    state.inEdit.length = 0;
+    state.inEdit = null;
     addBtnEl.id = "addContactBtn";
     addBtnEl.textContent = 'Add Contact'
 };

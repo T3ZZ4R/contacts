@@ -34,13 +34,6 @@ export const elementHandler = (obj, emptyStateMessage = `No contacts yet. Add yo
     emptyStateMsgEl.innerHTML = "";
   }
   )
-   contactsCounterEl.textContent = `${obj.length} Contacts`
-const editBtn=document.querySelectorAll('.edit-btn');
-editBtn.forEach((btn)=>{
-btn.addEventListener('click',editHandler);
-const deleteBtn=document.querySelectorAll('.delete-btn');
-deleteBtn.forEach((btn)=>{
-  btn.addEventListener('click',deleteHandler)
-})
-})
+   contactsCounterEl.textContent = `${obj.length} Contacts`;
 }
+

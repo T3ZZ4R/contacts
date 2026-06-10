@@ -10,12 +10,11 @@ export const deleteHandler = event => {
     state.pendingToDeleteId = id;
     const name = selectedCard.querySelector('.name');
     deleteMsg.classList.add('show');
-    openModal();
 }
-const openModal=()=>{
 
 
-const confirmDelete = (e) => {
+
+export const confirmDelete = (e) => {
         const action = e.target.value;
         if (action == 'confirm') {
             const contact = state.contacts.find(contact => contact.id == state.pendingToDeleteId)
@@ -29,5 +28,4 @@ const confirmDelete = (e) => {
         if (action == 'cancel') {
             deleteMsg.classList.remove('show');
         }
-    } 
- deleteBtns.forEach(btn=>btn.addEventListener('click', confirmDelete))};
+    }
