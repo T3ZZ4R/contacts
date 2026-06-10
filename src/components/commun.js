@@ -19,7 +19,8 @@ export const deleteBtns = document.querySelectorAll('.delete-action')
 export const state = {
     "contacts": [],
     "searched": [],
-    "inEdit":[]
+    "inEdit":[],
+    "pendingToDeleteId":null
 };
 //get items from local storage
 const getFromLocal =() => {

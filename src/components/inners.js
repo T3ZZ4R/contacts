@@ -14,7 +14,7 @@ export const elementHandler = (obj, emptyStateMessage = `No contacts yet. Add yo
     const badge = contact.name.slice(0, 1).toUpperCase();
     //`<img src="${contact.img}"`||``
     const element = `
-     <div class="card">
+     <div class="card" data-id=${contact.id}>
     <div class="avatar">
   ${contact.img ? `<img src="${contact.img}">` : `<div class="avatar-placeholder">${badge}</div>`} 
     </div>
@@ -42,6 +42,5 @@ const deleteBtn=document.querySelectorAll('.delete-btn');
 deleteBtn.forEach((btn)=>{
   btn.addEventListener('click',deleteHandler)
 })
-  
 })
 }

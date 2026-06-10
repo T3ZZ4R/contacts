@@ -6,26 +6,28 @@ export const deleteHandler = event => {
     const btnClicked = event.target.closest('.delete-btn')
     if (!btnClicked) return;
     const selectedCard = btnClicked.closest('.card');
+    const id = selectedCard.dataset.id;
+    state.pendingToDeleteId = id;
     const name = selectedCard.querySelector('.name');
     deleteMsg.classList.add('show');
-    const confirmDelete = (e, name) => {
+    openModal();
+}
+const openModal=()=>{
+
+
+const confirmDelete = (e) => {
         const action = e.target.value;
         if (action == 'confirm') {
+            const contact = state.contacts.find(contact => contact.id == state.pendingToDeleteId)
+            console.log(contact);
+            state.contacts = state.contacts.filter(contact => contact.id != state.pendingToDeleteId);
             deleteMsg.classList.remove('show');
-            state.contacts = state.contacts.filter(contact => contact.name !== name);
-            errorHandler(`${name} Is Succsesfully Removed`, 'lightgreen', 'black')
+            errorHandler(`${contact.name} Is Succsesfully Removed`, 'lightgreen', 'black')
             updateLocal();
-
+            return;
         }
         if (action == 'cancel') {
             deleteMsg.classList.remove('show');
         }
-    }
-
-    deleteBtns.forEach(btn => {
-        btn.addEventListener('click', (event => {
-            confirmDelete(event, name.textContent)
-        }))
-
-    })
-}
+    } 
+ deleteBtns.forEach(btn=>btn.addEventListener('click', confirmDelete))};

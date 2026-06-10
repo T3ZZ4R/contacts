@@ -4,8 +4,9 @@ export const editHandler = event => {
     const btnClicked = event.target.closest('.edit-btn')
     if (!btnClicked) return;
     const selectedCard = btnClicked.closest('.card');
+    const id=selectedCard.dataset.id;
     const name = selectedCard.querySelector('.name');
-    state.inEdit = state.contacts.filter(contact => contact.name == name.textContent);
+    state.inEdit = state.contacts.filter(contact => contact.id == id);
     const inEdit = state.inEdit[0];
 
     nameBoxEl.value = inEdit.name;

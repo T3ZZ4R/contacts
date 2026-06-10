@@ -23,32 +23,37 @@ const addContactHandler = () => {
         errorHandler('Number Is Connat Be Empty')
         return;
     }
-       const numberCheckinput = /^[0-9]+$/;
-       if(!numberCheckinput.test(numberBoxEl.value)){
+    const numberCheckinput = /^[0-9]+$/;
+    if (!numberCheckinput.test(numberBoxEl.value)) {
         errorHandler('Number Box May Not Contain Characters');
         return;
-       }
+    }
     if (addBtnEl.id == "addContactBtn") {
+
         const contact = {
+            "id": 1,
             "name": nameBoxEl.value,
             "tel": numberBoxEl.value,
             "email": emailBoxEl.value,
             "img": previewImg.src
         };
+        let lastContact = state.contacts.length;
+        contact.id = lastContact++;
         state.contacts.push(contact);
+
     }
     if (addBtnEl.id == "confirm-btn") {
-       confirmHandler();
+        confirmHandler();
     }
     nameBoxEl.value = "";
-        emailBoxEl.value = "";
-        numberBoxEl.value = "";
-        upImgEl.value = "";
-        previewImg.removeAttribute("src");
-        previewImg.classList.remove("show");
-        elementHandler(state.contacts);
-         const stringOfList = JSON.stringify(state.contacts)
-        localStorage.setItem("contact", stringOfList);
+    emailBoxEl.value = "";
+    numberBoxEl.value = "";
+    upImgEl.value = "";
+    previewImg.removeAttribute("src");
+    previewImg.classList.remove("show");
+    elementHandler(state.contacts);
+    const stringOfList = JSON.stringify(state.contacts)
+    localStorage.setItem("contact", stringOfList);
 }
 const showPreview = () => {
     const image = upImgEl.files[0];
