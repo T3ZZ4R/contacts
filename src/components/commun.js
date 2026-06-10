@@ -19,15 +19,15 @@ export const deleteBtns = document.querySelectorAll('.delete-action')
 export const state = {
     "contacts": [],
     "searched": [],
-    "inEdit":[],
-    "pendingToDeleteId":null
+    "inEdit": [],
+    "pendingToDeleteId": null
 };
 //get items from local storage
-const getFromLocal =() => {
+const getFromLocal = () => {
     try {
-        const data =  localStorage.getItem("contact");
+        const data = localStorage.getItem("contact");
         if (!data) return;
-        const jsonifyData =JSON.parse(data);
+        const jsonifyData = JSON.parse(data);
         state.contacts = jsonifyData;
         elementHandler(state.contacts);
     }
@@ -39,7 +39,7 @@ const getFromLocal =() => {
     }
 }
 getFromLocal();
-export const updateLocal=()=>{
+export const updateLocal = () => {
     const stringOfList = JSON.stringify(state.contacts)
     localStorage.setItem("contact", stringOfList);
     elementHandler(state.contacts)

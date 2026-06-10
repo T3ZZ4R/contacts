@@ -15,17 +15,16 @@ export const deleteHandler = event => {
 
 
 export const confirmDelete = (e) => {
-        const action = e.target.value;
-        if (action == 'confirm') {
-            const contact = state.contacts.find(contact => contact.id == state.pendingToDeleteId)
-            console.log(contact);
-            state.contacts = state.contacts.filter(contact => contact.id != state.pendingToDeleteId);
-            deleteMsg.classList.remove('show');
-            errorHandler(`${contact.name} Is Succsesfully Removed`, 'lightgreen', 'black')
-            updateLocal();
-            return;
-        }
-        if (action == 'cancel') {
-            deleteMsg.classList.remove('show');
-        }
+    const action = e.target.value;
+    if (action == 'confirm') {
+        const contact = state.contacts.find(contact => contact.id == state.pendingToDeleteId)
+        state.contacts = state.contacts.filter(contact => contact.id != state.pendingToDeleteId);
+        deleteMsg.classList.remove('show');
+        errorHandler(`${contact.name} Is Succsesfully Removed`, 'lightgreen', 'black')
+        updateLocal();
+        return;
     }
+    if (action == 'cancel') {
+        deleteMsg.classList.remove('show');
+    }
+}
