@@ -1,4 +1,4 @@
-import { emailBoxEl, nameBoxEl, numberBoxEl, previewImg } from "./commun.js"
+import { emailBoxEl, nameBoxEl, numberBoxEl, previewImg, upImgEl } from "./commun.js"
 export const updateFilds = {
     setValue(value) {
         if (value === "empty") {
@@ -6,7 +6,8 @@ export const updateFilds = {
             numberBoxEl.value = "";
             emailBoxEl.value = "";
             previewImg.removeAttribute('src');
-            previewImg.classList.remove('show')
+            previewImg.classList.remove('show');
+            upImgEl.value="";
         }
         else {
             nameBoxEl.value = value.name;

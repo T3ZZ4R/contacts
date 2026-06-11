@@ -90,11 +90,8 @@ input {
 #avatarPreview.show {
   opacity: 1;
 }
-a{
-  all: unset;
-}
 /* BUTTON */
-button ,a{
+button {
   background: linear-gradient(45deg, var(--accent), var(--accent2));
   border: none;
   padding: 12px;
@@ -289,7 +286,7 @@ button:active {
   justify-content: center;
   gap: 10px;
 }
-.actions button,a{
+.actions button{
   background: var(--glass);
   border: 1px solid var(--border);
 }
