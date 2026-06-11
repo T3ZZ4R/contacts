@@ -1,6 +1,7 @@
-import { contactsFieldEl, deleteBtns, deleteMsg, state } from "./commun.js";
+import { contactsFieldEl, deleteBtns, deleteMsg } from "./dom.js";
 import { confirmDelete, deleteHandler } from "./delete.js";
 import { confirmHandler, editHandler } from "./edit.js";
+import { state } from "./state.js";
 const init = () => {
     const buttonHandler = e => {
         const editBtn = e.target.closest('.edit-btn');

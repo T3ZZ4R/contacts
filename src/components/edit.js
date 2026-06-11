@@ -1,6 +1,7 @@
-import { addBtnEl, emailBoxEl, nameBoxEl, numberBoxEl, previewImg, state } from "./commun.js";
+import { addBtnEl, emailBoxEl, nameBoxEl, numberBoxEl, previewImg} from "./dom.js";
 import { errorHandler } from "./error.js";
 import { updateFilds } from "./field.js";
+import { state } from "./state.js";
 export const editHandler = event => {
     const btnClicked = event.target.closest('.edit-btn')
     if (!btnClicked) return;

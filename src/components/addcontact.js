@@ -1,5 +1,4 @@
 import {
-    state,
     nameBoxEl,
     numberBoxEl,
     emailBoxEl,
@@ -7,13 +6,13 @@ import {
     addBtnEl,
     previewImg,
     errorBoxEl
-} from "./commun.js";
+} from "./dom.js";
 import { confirmHandler } from "./edit.js";
 import { errorHandler } from "./error.js";
 import { updateFilds } from "./field.js";
-import { elementHandler } from "./inners.js";
+import { elementHandler } from "./render.js";
 import { storage } from "./local.js";
-
+import { state } from "./state.js";
 const addContactHandler = () => {
     const nameChecked = nameBoxEl.value == "";
     const numberChecked = numberBoxEl.value == "";

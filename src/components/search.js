@@ -1,5 +1,7 @@
-import { searchBoxEl, state } from "./commun.js";
-import { elementHandler } from "./inners.js";
+import { searchBoxEl } from "./dom.js";
+import { elementHandler } from "./render.js";
+import { state } from "./state.js";
+
 const searchHandler = () => {
     state.searched.length = 0;
     if (searchBoxEl.value == "") {
@@ -7,15 +9,16 @@ const searchHandler = () => {
         return;
     }
     const textSearched = searchBoxEl.value.toLowerCase()
+    const searched=[];
     state.contacts.forEach(contact => {
 
 
         const filter = contact.name.toLowerCase().includes(textSearched) || contact.tel.toLowerCase().includes(textSearched);
         if (filter) {
-            state.searched.push(contact);
+            searched.push(contact);
         }
     })
-    state.searched.sort();
-    elementHandler(state.searched, `You Have Not Contact Matched With ${searchBoxEl.value} 🙄`)
+    searched.sort();
+    elementHandler(searched, `You Have Not Contact Matched With ${searchBoxEl.value} 🙄`)
 }
 searchBoxEl.addEventListener('input', searchHandler);

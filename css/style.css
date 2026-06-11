@@ -92,7 +92,7 @@ input {
 }
 /* BUTTON */
 button {
-  background: linear-gradient(45deg, var(--accent), var(--accent2));
+  background: linear-gradient(45deg, var(--accent), var(--accent2)); 
   border: none;
   padding: 12px;
   border-radius: 12px;
@@ -290,9 +290,16 @@ button:active {
   background: var(--glass);
   border: 1px solid var(--border);
 }
-
+.call-btn:hover{
+  box-shadow: 0 0 12px rgb(3, 254, 3);
+  animation: shake .3s;
+}
+.edit-btn:hover{
+  box-shadow: 0 0 12px white;
+  animation: shake .3s;
+}
 .delete-btn:hover {
-  box-shadow: 0 0 10px var(--danger);
+  box-shadow: 0 0 12px var(--danger);
   animation: shake .3s;
 }
 
@@ -339,6 +346,53 @@ bottom: 20px;
 left: 50%;
 transform: translateX(-50%);
 width: 100px;
+}
+#confirm-btn{
+  color: #0f1221;
+  background: linear-gradient(var(--glass),lightgray,lightgray,var(--glass));
+  transition: all 1.5s ease;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.actions button,
+.actions a {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+  border: 1px solid #ddd; 
+  background: rgba(255, 255, 255, 0.643);
+
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.actions button:hover,
+.actions a:hover {
+  background: #f2f2f2;
+}
+.actions img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+.edit-btn img,
+.delete-btn img {
+  width: 20px;
+  height: 20px;
+}
+.edit-btn img{
+  width: 50px;
+  height: 70px;
+  padding-bottom: 4px;
 }
 /* RESPONSIVE */
 @media(max-width:600px) {

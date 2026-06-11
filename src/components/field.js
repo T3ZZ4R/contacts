@@ -1,4 +1,4 @@
-import { emailBoxEl, nameBoxEl, numberBoxEl, previewImg, upImgEl } from "./commun.js"
+import { emailBoxEl, nameBoxEl, numberBoxEl, previewImg, upImgEl } from "./dom.js"
 export const updateFilds = {
     setValue(value) {
         if (value === "empty") {

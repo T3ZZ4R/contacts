@@ -1,6 +1,4 @@
-import { contactsCounterEl, contactsFieldEl, emptyStateMsgEl, state } from "./commun.js";
-import { deleteHandler } from "./delete.js";
-import { editHandler } from "./edit.js";
+import { contactsCounterEl, contactsFieldEl, emptyStateMsgEl} from "./dom.js";
 import { updateFilds } from "./field.js";
 export const elementHandler = (obj, emptyStateMessage = `No contacts yet. Add your first one ✨`) => {
   if (obj.length == 0) {
@@ -13,7 +11,6 @@ export const elementHandler = (obj, emptyStateMessage = `No contacts yet. Add yo
   contactsFieldEl.innerHTML = "";
   obj.forEach(contact => {
     const badge = contact.name.slice(0, 1).toUpperCase();
-    //`<img src="${contact.img}"`||``
     const element = `
      <div class="card" data-id=${contact.id}>
     <div class="avatar">
@@ -23,12 +20,19 @@ export const elementHandler = (obj, emptyStateMessage = `No contacts yet. Add yo
     <p>${contact.tel}</p>
     <p>${contact.email}</p>
 
-    <div class="actions">
-      <button class="edit-btn"><i class="fa fa-pen"></i>E</button>
-      <button class="delete-btn"><i class="fa fa-trash"></i>D</button>
-  <a href="tel:${contact.tel}">
-  <button class="call-btn">C</button></a>
-    </div>
+   <div class="actions">
+  <button class="edit-btn">
+    <img src="./css/edit.png" alt="Edit">
+  </button>
+
+  <button class="delete-btn">
+    <img src="./css/delete.png" alt="Delete">
+  </button>
+
+  <a href="tel:${contact.tel}" class="call-btn">
+    <img src="./css/phone.png" alt="Call">
+  </a>
+</div>
   </div>`;
     contactsFieldEl.insertAdjacentHTML("beforeend", element);
 

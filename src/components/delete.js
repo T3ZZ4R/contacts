@@ -1,8 +1,8 @@
-import { deleteBtns, deleteMsg, state} from "./commun.js";
+import { deleteBtns, deleteMsg} from "./dom.js";
 import { errorHandler } from "./error.js";
-import { elementHandler } from "./inners.js";
+import { elementHandler } from "./render.js";
 import { storage } from "./local.js";
-
+import { state } from "./state.js";
 export const deleteHandler = event => {
     const btnClicked = event.target.closest('.delete-btn')
     if (!btnClicked) return;

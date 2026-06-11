@@ -1,6 +1,6 @@
-import { state } from "./commun.js";
+import { state } from "./state.js";
 import { errorHandler } from "./error.js";
-import { elementHandler } from "./inners.js";
+import { elementHandler } from "./render.js";
  export const storage={
     getFromLocal(){
        try {
@@ -23,3 +23,4 @@ errorHandler('Somthing Happend For recive data');
     elementHandler(state.contacts)
 }
  }
+ storage.getFromLocal()

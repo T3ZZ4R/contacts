@@ -1,4 +1,4 @@
-import { errorBoxEl, errorMsg } from "./commun.js";
+import { errorBoxEl, errorMsg } from "./dom.js";
 export const errorHandler = (message,color='#ff4d6d',textColor='white') => {
 errorBoxEl.style.background=color;
 errorBoxEl.style.color=textColor;
