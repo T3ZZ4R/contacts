@@ -3,7 +3,6 @@ import { elementHandler } from "./render.js";
 import { state } from "./state.js";
 
 const searchHandler = () => {
-    state.searched.length = 0;
     if (searchBoxEl.value == "") {
         elementHandler(state.contacts)
         return;
